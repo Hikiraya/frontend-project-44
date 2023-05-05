@@ -1,0 +1,22 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "first project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hikiraya/frontend-project-44.git"
+  },
+  "keywords": [
+    "project"
+  ],
+  "author": "Timofey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hikiraya/frontend-project-44/issues"
+  },
+  "homepage": "https://github.com/Hikiraya/frontend-project-44#readme"
+}
