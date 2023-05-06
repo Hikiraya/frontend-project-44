@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/Hikiraya/frontend-project-44/issues"
   },
-  "homepage": "https://github.com/Hikiraya/frontend-project-44#readme"
+  "homepage": "https://github.com/Hikiraya/frontend-project-44#readme",
+  "type": "module",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  }
 }
