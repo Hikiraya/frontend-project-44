@@ -7,6 +7,8 @@ let firstRandomNumber;
 let secondRandomNumber;
 let resultOfCorrectAnswer;
 let isGameOver;
+let hideOfProgressionNumber;
+let stepForProgression;
 
 // приведствие и получение имени пользователя
 const greetings = () => {
@@ -29,6 +31,9 @@ const rulesOfGame = (nameGame) => {
     case 'brain-gcd':
       console.log('Find the greatest common divisor of given numbers.');
       break;
+    case 'brain-progression':
+      console.log('What number is missing in the progression?');
+      break;
     default:
       console.log('Sorry, something wrong');
       break;
@@ -44,10 +49,28 @@ function getRandom(min, max) {
 
 // вывод рандомного математического знака
 const getRandomMathSign = () => {
-  const arr = ['+', '-', '*'];
-  const i = Math.floor(Math.random() * arr.length);
-  const operator = arr[i];
+  const mas = ['+', '-', '*'];
+  const i = Math.floor(Math.random() * mas.length);
+  const operator = mas[i];
   return operator;
+};
+
+// вывод вопроса для игры brain progression
+const progression = () => {
+  stepForProgression = getRandom(2, 10);
+  const hideOfIndexNumber = getRandom(1, 10);
+  let mas = [];
+  const endProgression = firstRandomNumber + stepForProgression * 10;
+  for (
+    let i = firstRandomNumber;
+    i < endProgression;
+    i += stepForProgression
+  ) {
+    mas.push(i);
+  }
+  hideOfProgressionNumber = mas.splice(hideOfIndexNumber, 1, '..');
+  mas = mas.join(' ');
+  return mas;
 };
 
 // вопрос пользователю
@@ -65,6 +88,9 @@ const question = (nameGame) => {
       break;
     case 'brain-gcd':
       questionResult = console.log(`${'Question:'} ${firstRandomNumber} ${secondRandomNumber}`);
+      break;
+    case 'brain-progression':
+      questionResult = console.log(`${'Question:'} ${progression(firstRandomNumber, stepForProgression)}`);
       break;
     default:
       console.log('Sorry, something wrong');
@@ -122,6 +148,9 @@ const correctAnswer = (nameGame) => {
       break;
     case 'brain-gcd':
       resultOfCorrectAnswer = brainGcdCorrectAnswer(firstRandomNumber, secondRandomNumber);
+      break;
+    case 'brain-progression':
+      resultOfCorrectAnswer = hideOfProgressionNumber;
       break;
     default:
       console.log('Sorry, something wrong');
