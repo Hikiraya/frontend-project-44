@@ -26,6 +26,9 @@ const rulesOfGame = (nameGame) => {
     case 'brain-calc':
       console.log('What is the result of the expression?');
       break;
+    case 'brain-gcd':
+      console.log('Find the greatest common divisor of given numbers.');
+      break;
     default:
       console.log('Sorry, something wrong');
       break;
@@ -60,6 +63,9 @@ const question = (nameGame) => {
     case 'brain-calc':
       questionResult = console.log(`${'Question:'} ${firstRandomNumber} ${sign} ${secondRandomNumber}`);
       break;
+    case 'brain-gcd':
+      questionResult = console.log(`${'Question:'} ${firstRandomNumber} ${secondRandomNumber}`);
+      break;
     default:
       console.log('Sorry, something wrong');
       break;
@@ -84,7 +90,7 @@ const textOfcorrectAnswer = () => {
   console.log('Correct!');
 };
 
-// расчета правильно ответа для игры brain calc
+// расчет правильно ответа для игры brain calc
 const brainCalcCorrectAnswer = (a, b) => {
   if (sign === '+') {
     resultOfCorrectAnswer = a + b;
@@ -96,7 +102,16 @@ const brainCalcCorrectAnswer = (a, b) => {
   return resultOfCorrectAnswer;
 };
 
-// Функция определения правильного ответа в зависимости от названия игры
+// расчет правильно ответа для игры brain gcd
+
+const brainGcdCorrectAnswer = (a, b) => {
+  if (!b) {
+    return a;
+  }
+  return brainGcdCorrectAnswer(b, a % b);
+};
+
+// определение правильного ответа в зависимости от названия игры
 const correctAnswer = (nameGame) => {
   switch (nameGame) {
     case 'brain-even':
@@ -104,6 +119,9 @@ const correctAnswer = (nameGame) => {
       break;
     case 'brain-calc':
       brainCalcCorrectAnswer(firstRandomNumber, secondRandomNumber);
+      break;
+    case 'brain-gcd':
+      resultOfCorrectAnswer = brainGcdCorrectAnswer(firstRandomNumber, secondRandomNumber);
       break;
     default:
       console.log('Sorry, something wrong');
