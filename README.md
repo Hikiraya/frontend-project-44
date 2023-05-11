@@ -5,3 +5,4 @@
 <a href="https://asciinema.org/a/4GzlGgbKwWrxzRmHVVJP8Zpt6" target="_blank"><img src="https://asciinema.org/a/4GzlGgbKwWrxzRmHVVJP8Zpt6.svg" /></a>
 <a href="https://asciinema.org/a/qiJn31gBvZlYslRhn4d5enM8m" target="_blank"><img src="https://asciinema.org/a/qiJn31gBvZlYslRhn4d5enM8m.svg" /></a>
 <a href="https://asciinema.org/a/fygYwQVlBbVxygv06Oaq0P6Uo" target="_blank"><img src="https://asciinema.org/a/fygYwQVlBbVxygv06Oaq0P6Uo.svg" /></a>
+<a href="https://asciinema.org/a/JEJkibuDpQ3CTCn4Ch5OhLnqE" target="_blank"><img src="https://asciinema.org/a/JEJkibuDpQ3CTCn4Ch5OhLnqE.svg" /></a>
