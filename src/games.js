@@ -2,7 +2,9 @@ import readlineSync from 'readline-sync';
 
 // переменные
 let userName;
+let sign;
 let firstRandomNumber;
+let secondRandomNumber;
 let resultOfCorrectAnswer;
 let isGameOver;
 
@@ -21,6 +23,9 @@ const rulesOfGame = (nameGame) => {
     case 'brain-even':
       console.log('Answer "yes" if the number is even, otherwise answer "no".');
       break;
+    case 'brain-calc':
+      console.log('What is the result of the expression?');
+      break;
     default:
       console.log('Sorry, something wrong');
       break;
@@ -34,13 +39,26 @@ function getRandom(min, max) {
   return Math.floor(Math.random() * (maxCopy - minCopy)) + minCopy;
 }
 
+// вывод рандомного математического знака
+const getRandomMathSign = () => {
+  const arr = ['+', '-', '*'];
+  const i = Math.floor(Math.random() * arr.length);
+  const operator = arr[i];
+  return operator;
+};
+
 // вопрос пользователю
 const question = (nameGame) => {
   firstRandomNumber = getRandom(2, 100);
+  secondRandomNumber = getRandom(1, 100);
+  sign = getRandomMathSign();
   let questionResult;
   switch (nameGame) {
     case 'brain-even':
       questionResult = console.log(`${'Question:'} ${firstRandomNumber}`);
+      break;
+    case 'brain-calc':
+      questionResult = console.log(`${'Question:'} ${firstRandomNumber} ${sign} ${secondRandomNumber}`);
       break;
     default:
       console.log('Sorry, something wrong');
@@ -66,11 +84,26 @@ const textOfcorrectAnswer = () => {
   console.log('Correct!');
 };
 
+// расчета правильно ответа для игры brain calc
+const brainCalcCorrectAnswer = (a, b) => {
+  if (sign === '+') {
+    resultOfCorrectAnswer = a + b;
+  } else if (sign === '-') {
+    resultOfCorrectAnswer = a - b;
+  } else {
+    resultOfCorrectAnswer = a * b;
+  }
+  return resultOfCorrectAnswer;
+};
+
 // Функция определения правильного ответа в зависимости от названия игры
 const correctAnswer = (nameGame) => {
   switch (nameGame) {
     case 'brain-even':
       brainEvenCorrectAnswer(firstRandomNumber);
+      break;
+    case 'brain-calc':
+      brainCalcCorrectAnswer(firstRandomNumber, secondRandomNumber);
       break;
     default:
       console.log('Sorry, something wrong');
